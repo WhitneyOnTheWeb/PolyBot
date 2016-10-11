@@ -111,7 +111,7 @@
                          "Each and every one of you deserve a little robot lovin' in your life...",
                          "/me grooves to the music",
                          "Not on the rug, maaaaan!",
-                         "The rug really ties the room together."],,
+                         "The rug really ties the room together."],
       messageInterval: 4,
       songstats: true,
       commandLiteral: "!",
