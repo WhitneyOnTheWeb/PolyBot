@@ -1,5 +1,5 @@
-# basicBot (custom)
-> A not so basic bot for plug.dj
+# polyBot (Extension)
+> Based on a customized version of basicBot (polyBot)
 
 ---
 
