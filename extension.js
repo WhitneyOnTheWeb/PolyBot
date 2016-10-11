@@ -1,7 +1,7 @@
 (function () {
 
     // Change this to your GitHub username so you don't have to modify so many things.
-    var fork = "basicBot";
+    var fork = "WhitneyOnTheWeb";
 
     // Define our function responsible for extending the bot.
     function extend() {
@@ -46,14 +46,14 @@
     //Change the bots default settings and make sure they are loaded on launch
 
     localStorage.setItem("basicBotsettings", JSON.stringify({
-      botName: "basicBot",
+      botName: "polyBot",
       language: "english",
-      chatLink: "https://rawgit.com/basicBot/source/master/lang/en.json",
+      chatLink: "https://rawgit.com/WhitneyOnTheWeb/polyBot/master/lang/en.json",
       scriptLink: "https://rawgit.com/basicBot/source/master/basicBot.js",
       roomLock: false, // Requires an extension to re-load the script
-      startupCap: 1, // 1-200
+      startupCap: 10, // 1-200
       startupVolume: 0, // 0-100
-      startupEmoji: false, // true or false
+      startupEmoji: true, // true or false
       autowoot: true,
       autoskip: false,
       smartSkip: true,
@@ -68,46 +68,57 @@
       maximumLocktime: 10,
       cycleGuard: true,
       maximumCycletime: 10,
-      voteSkip: false,
-      voteSkipLimit: 10,
-      historySkip: false,
+      voteSkip: true,
+      voteSkipLimit: 4,
+      historySkip: true,
       timeGuard: true,
-      maximumSongLength: 10,
+      maximumSongLength: 19,
       autodisable: true,
       commandCooldown: 30,
       usercommandsEnabled: true,
-      skipPosition: 3,
+      skipPosition: 2,
       skipReasons: [
-      ["theme", "This song does not fit the room theme. "],
-      ["op", "This song is on the OP list. "],
+      ["theme", "This song does not fit the room theme or is against the rules. "],
+      ["op", "This song is on the overplayed list. "],
       ["history", "This song is in the history. "],
-      ["mix", "You played a mix, which is against the rules. "],
       ["sound", "The song you played had bad sound quality or no sound. "],
       ["nsfw", "The song you contained was NSFW (image or sound). "],
-      ["unavailable", "The song you played was not available for some users. "]
+      ["unavailable", "The song you played was not available for some users. "],
+      ["troll", "The song you played was deemed to be trolling or offensive. "]
       ],
       afkpositionCheck: 15,
       afkRankCheck: "ambassador",
       motdEnabled: false,
       motdInterval: 5,
-      motd: "Temporary Message of the Day",
+      motd: "Welcome to the Poly-Geekery plug.dj community! Pull up a chair, share some of your favorite songs, and make some new like minded friends in chat! We have daily themes, so check back often to see what we're up to! We hope you enjoy this community.",
       filterChat: true,
       etaRestriction: false,
       welcome: true,
-      opLink: null,
+      opLink: "https://github.com/WhitneyOnTheWeb/poly/blob/master/blacklists/OPlist.json",
       rulesLink: null,
       themeLink: null,
       fbLink: null,
       youtubeLink: null,
       website: null,
-      intervalMessages: [],
-      messageInterval: 5,
+      intervalMessages: ["Nice tracks (and nice racks), keep em' coming!",
+                         "I'm really getting into the music... almost as much as I'm into the DJ!",
+                         "I believe that all roads lead to the same place - and that is wherever all roads lead to. Maybe you?",
+                         "I didn't come here and I ain't leavin'.",
+                         "Great songs stand out wherever they're from.",
+                         "If music be the food of love, play on.",
+                         "Where words fail, music speaks.",
+                         "The true object of all human life is play.",
+                         "Each and every one of you deserve a little robot lovin' in your life...",
+                         "/me grooves to the music",
+                         "Not on the rug, maaaaan!",
+                         "The rug really ties the room together."],,
+      messageInterval: 4,
       songstats: true,
       commandLiteral: "!",
       blacklists: {
-        NSFW: "https://rawgit.com/basicBot/custom/master/blacklists/NSFWlist.json",
-        OP: "https://rawgit.com/basicBot/custom/master/blacklists/OPlist.json",
-        BANNED: "https://rawgit.com/basicBot/custom/master/blacklists/BANNEDlist.json"
+        NSFW: "https://rawgit.com/polyBot/custom/master/blacklists/NSFWlist.json",
+        OP: "https://rawgit.com/polyBot/custom/master/blacklists/OPlist.json",
+        BANNED: "https://rawgit.com/polyBot/custom/master/blacklists/BANNEDlist.json"
       }
     }));
 
