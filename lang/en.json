@@ -55,6 +55,12 @@
         "Don't bet on it.",
         "Forget about it."
     ],
+    "slots": [
+        {"winner": ", Oooooh you won! I just love winners. You've won %%TOKENS%% LoveBytes!",
+         "jackpot": ", You hit the jackpot worth %%TOKENS%% LoveBytes! Make sure to get your loves something nice.",
+         "loser": ", Aww, you lost! But it's okay... you can always try again if you have enough LoveBytes!"
+        }
+    ],
     "nodatafound": "No previous data found.",
     "currentlang": "\/me Language currently set to: %%LANGUAGE%%",
     "langerror": "\/me The language you've selected isn't available. Please visit %%LINK%% to find a list of languages available.",
