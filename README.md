@@ -1,5 +1,5 @@
 # polyBot (Extension)
-> Based on a customized version of basicBot (polyBot)
+> Customized extensions for basicBot for use in the Poly-Geekery plug.dj community
 
 ---
 
