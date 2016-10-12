@@ -94,7 +94,7 @@
       filterChat: true,
       etaRestriction: false,
       welcome: true,
-      opLink: "https://github.com/WhitneyOnTheWeb/poly/blob/master/blacklists/OPlist.json",
+      opLink: "https://github.com/WhitneyOnTheWeb/polyBot-Extensions/blob/master/blacklists/OPlist.json",
       rulesLink: null,
       themeLink: null,
       fbLink: null,
@@ -118,7 +118,6 @@
       songstats: true,
       commandLiteral: "!",
       blacklists: {
-        NSFW: "https://rawgit.com/polyBot/custom/master/blacklists/NSFWlist.json",
         OP: "https://rawgit.com/polyBot/custom/master/blacklists/OPlist.json",
         BANNED: "https://rawgit.com/polyBot/custom/master/blacklists/BANNEDlist.json"
       }
