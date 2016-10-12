@@ -46,7 +46,7 @@
     //Change the bots default settings and make sure they are loaded on launch
 
     localStorage.setItem("basicBotsettings", JSON.stringify({
-      botName: "polyBot",
+      botName: "PolyBot",
       language: "english",
       chatLink: "https://rawgit.com/WhitneyOnTheWeb/polyBot/master/lang/en.json",
       scriptLink: "https://rawgit.com/basicBot/source/master/basicBot.js",
@@ -94,7 +94,7 @@
       filterChat: true,
       etaRestriction: false,
       welcome: true,
-      opLink: "https://github.com/WhitneyOnTheWeb/polyBot-Extensions/blob/master/blacklists/OPlist.json",
+      opLink: "https://github.com/WhitneyOnTheWeb/polyBot/blob/master/blacklists/OPlist.json",
       rulesLink: null,
       themeLink: null,
       fbLink: null,
@@ -118,8 +118,8 @@
       songstats: true,
       commandLiteral: "!",
       blacklists: {
-        OP: "https://rawgit.com/polyBot/custom/master/blacklists/OPlist.json",
-        BANNED: "https://rawgit.com/polyBot/custom/master/blacklists/BANNEDlist.json"
+        OP: "https://rawgit.com/WhitneyOnTheWeb/polyBot/master/blacklists/OPlist.json",
+        BANNED: "https://rawgit.com/WhitneyOnTheWeb/polyBot/master/blacklists/BANNEDlist.json"
       }
     }));
 
