@@ -318,6 +318,14 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     var msg = chat.message; 
+                    var space = msg.indexOf(' ');
+                    var receiver = msg.substring(space + 2); 
+                    console.log(receiver);
+                    var giverLove = validateLove(chat.un);
+                    var receiverLove = validateLove(receiver);
+                    
+                    
+                    var msg = chat.message; 
 		            var space = msg.indexOf(' ');
                     var parse = msg.Split(' ');
                     var name = msg.substring(space + 2);
@@ -371,13 +379,16 @@
                     var msg = chat.message; 
                     var space = msg.indexOf(' ');
                     var receiver = msg.substring(space + 2); 
-                    console.log(receiver);
+                    console.error(receiver);
                     var giverLove = validateLove(chat.un);
                     var receiverLove = validateLove(receiver);
                     var currentDJ = API.getDJ().username; 
             
                     if (giverLove <= 0) {
                         return API.sendChat("/me @" + chat.un + " tries to give a little love to @" + receiver + " for the awesome tunes, but doesn't have any Love Shackles! It's the thought that counts, right?"); 
+                    }
+                    else if (receiver === false || !receiver.inRoom) {
+                        return API.sendChat("/me @" + chat.un + " tries to give some Love Shackles to @" + receiver + ", but they aren't in the room. We can all relate to missing someone.");
                     }
                     else {
                         receiverLove += 1;
@@ -387,7 +398,7 @@
                             receiverLove = validateLove(currentDJ);
                             receiverLove += 1; //Repeat check in the event tip is for current DJ.
                             localStorage.setItem(currentDJ, receiverLove);
-                            return API.sendChat("/me @" + chat.un + " loves on @" + currentDJ + " for their contirbution to the art of great music.  @" + chat.un + " has " + giverLove + " Love Shackles left. @" + currentDJ + " now has " + receiverLove + " Love Shackles."); 
+                            return API.sendChat("/me @" + chat.un + " loves on @" + currentDJ + " for their contribution to the art of great music.  @" + chat.un + " has " + giverLove + " Love Shackles left. @" + currentDJ + " now has " + receiverLove + " Love Shackles."); 
                         }
                         else {                        
                             localStorage.setItem(receiver, receiverLove);
