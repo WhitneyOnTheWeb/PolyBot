@@ -471,31 +471,31 @@
             return [outcome1[0], outcome2[0], outcome3[0], winnings];                      
         }
         
-        function checkTokens(bet, user) {
-             var tokensPreBet = validateTokens(user);
-             var tokensPostBet;
+        function checkLove(bet, user) {
+             var lovePreBet = validateLove(user);
+             var lovePostBet;
              var validBet = true;
 
-             //Adjust amount of tokens
-             if (bet > tokensPreBet || bet < 0) {
+             //Adjust amount of love
+             if (bet > lovePreBet || bet < 0) {
                   validBet = false;
-                  tokensPostBet = tokensPreBet;
+                  lovePostBet = lovePreBet;
              }
              else {
-                  tokensPostBet = tokensPreBet - bet;
+                  lovePostBet = lovePreBet - bet;
              }
              
-             localStorage.setItem(user, tokensPostBet);
-             return [tokensPreBet, tokensPostBet, validBet];
+             localStorage.setItem(user, lovePostBet);
+             return [lovePreBet, lovePostBet, validBet];
         }
         
         function slotWinnings(winnings, user) {
-             var userTokens = parseInt(localStorage.getItem(user)) + winnings;
-             if (isNaN(userTokens)) {
-                 userTokens = winnings;
+             var userLove = parseInt(localStorage.getItem(user)) + winnings;
+             if (isNaN(userLove)) {
+                 userLove = winnings;
              }
-             localStorage.setItem(user, userTokens);
-             return userTokens;
+             localStorage.setItem(user, userLove);
+             return userLove;
         }
 
         //slots
@@ -510,7 +510,7 @@
                     var msg = chat.message; 
 					var space = msg.indexOf(' ');
                     var user = chat.un; 
-                    var updatedTokens;
+                    var updatedLove;
                     var bet = parseInt(msg.substring(space + 1));
        
                     //Fix bet if blank
@@ -519,41 +519,41 @@
                     }
                     bet = Math.round(bet);      
                                    
-                    var playerTokens = checkTokens(bet, user);  
+                    var playerLove = checkLove(bet, user);  
                     
                     //Prevent invalid betting
-                    if (bet > playerTokens[0]) {
-                        if (playerTokens[0] === 0){
-                            return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but doesn't have any TOKEns! How embarassing."); 
+                    if (bet > playerLove[0]) {
+                        if (playerLove[0] === 0){
+                            return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " Love Shackles at the PolySlots, but doesn't have any! Tin roof, rusted!"); 
                         } 
-                        else if (playerTokens[0] === 1) {
-                            return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has one TOKEn! Wanna press your luck?"); 
+                        else if (playerLove[0] === 1) {
+                            return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " Love Shackles at the PolySlots, but only has one Shackle! Wanna press your luck?"); 
                         }
                         else {
-                            return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has " + playerTokens[0] + " TOKEns! How embarassing."); 
+                            return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " Love Shackles at the PolySlots, but only has " + playerLove[0] + "! A little less love will do ya."); 
                         }
                     }
                     else if (bet < 0) {
-                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots... you can't do that."); 
+                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " Love Shackles at the PolySlots... love is a positive energy, not a negative one. Spread some love, don't take it."); 
                     }
                     else if (bet === 0) { 
-                        return API.sendChat("/me @" + chat.un + " tries to bet no TOKEns at the ChemSlots... you can't play for free! Cheap skate."); 
+                        return API.sendChat("/me @" + chat.un + " tries to bet zero Love Shackles at the PolySlots... sign says ""Stay away, fools!"""); 
                     }
                     //Process valid bets
                     else {
                         var outcome = spinOutcome(bet);
-                        updatedTokens = slotWinnings(outcome[3], user);
+                        updatedLove = slotWinnings(outcome[3], user);
                     }
                     
                     //Display Slots
                     if (space === -1 || bet == 1) { 
                         //Start Slots
-                        API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin.");
+                        API.sendChat("/me @" + chat.un + " bets one Love Shackle at the PolySlots, and pulls the golden dildo to spin... the whole shack shimmies...");
                         setTimeout(function() {API.sendChat("/me  It finally stops on: " + outcome[0] + outcome[1] + outcome[2])}, 5000);
                     } 
                     else if (bet > 1) { 
                         //Start Slots
-                        API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEns at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin.");
+                        API.sendChat("/me @" + chat.un + " bets " + bet + " Love Shackles at the PolySlots, and pulls the golden dildo to spin... the whole shack shimmies...");
                         setTimeout(function() {API.sendChat("/me It finally stops on: " + outcome[0] + outcome[1] + outcome[2])}, 5000);
                     } 
                     else {
@@ -562,21 +562,21 @@
                          
                     //Display Outcome
                     if (outcome[3] == 0) {
-                        if (updatedTokens === 1) {
-                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You have one TOKEn. I hear gambling is addictive... want to try again?")}, 7000);   
+                        if (updatedLove === 1) {
+                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", awww too bad! You didn't win anything. Try a little harder, sugar...")}, 7000);   
                         }  
-                        else if (updatedTokens === 0) {
-                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You don't have anymore TOKens... you're ruined, ya bum! Get outta here!")}, 7000);
+                        else if (updatedLove === 0) {
+                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", ouch! You didn't win, and now you're clean out of Love Shackles... unless someone is feeling like spreading the love (shackles), it's time to set sail.")}, 7000);
                         }
                         else {
-                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You have " + updatedTokens + " TOKEns. I hear gambling is addictive... want to try again?")}, 7000);
+                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", too bad, sugar! You didn't win anything. You have " + updatedLove + " Love Shackles if you want to keep yanking the PolySlots rod.")}, 7000);
                         }
                     }
                     else if (outcome[3] == (bet * 7)) {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! You have " + updatedTokens + " TOKEns. Don't spend them all in one place!")}, 7000);      
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you've hit the JACKOFF! The golden dildo ejects " + outcome[3] + " Love Shackles directly into your account! You have " + updatedLove + " Shackles. Folks are gonna line up outside just to get a little love from you.")}, 7000);      
                     }
                     else {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! You have " + updatedTokens + " TOKEns. How about another spin?")}, 7000); 
+                        setTimeout(function() {API.sendChat("/me BANG, BANG, BANG! @" + chat.un + ", ! You've won " + outcome[3] + " Love Shackles! You have " + updatedLove + " Shackles... is it getting hot in here, or is that just you?")}, 7000); 
                     }
                 } 
             } 
