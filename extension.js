@@ -302,6 +302,7 @@
                     localStorage.setItem("Sinjun", "10");
                     localStorage.setItem("Understater", "10");
                     localStorage.setItem("polybot", "5000");
+		    localStorage.setItem("ChemBot", "5000");
                     API.sendChat("/me Love Shackles reset! Here's some jukebox money!");
                 }
             }
