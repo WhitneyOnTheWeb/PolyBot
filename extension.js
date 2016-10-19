@@ -16,7 +16,23 @@
         // Load custom settings set below
         bot.retrieveSettings();
 
-        //Extend the bot here, either by calling another function or here directly.
+        /*
+         Extend the bot here, either by calling another function or here directly.
+         
+         Model code for a bot command:
+         bot.commands.commandCommand = {
+         command: 'cmd',
+         rank: 'user/bouncer/mod/manager',
+         type: 'startsWith/exact',
+         functionality: function(chat, cmd){
+         if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+         if( !bot.commands.executable(this.rank, chat) ) return void (0);
+         else{
+         //Commands functionality goes here.
+         }
+         }
+         }
+         */
 
         // You can add more spam words to the bot.
         var spamWords = ['spam1', 'spam2', 'spam3', 'spam4'];
@@ -24,19 +40,515 @@
           window.bot.chatUtilities.spam.push(spamWords[i]);
         }
 
-        // Example code for a bot command:
+        // !bacon
         bot.commands.baconCommand = {
-          command: 'bacon',  // The command to be called. With the standard command literal this would be: !bacon
-          rank: 'user', // Minimum user permission to use the command
-          type: 'exact', // Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-          functionality: function (chat, cmd) {
-            if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-            if (!bot.commands.executable(this.rank, chat)) return void (0);
-            else {
-              API.sendChat("/me Bacon!!!");
+            command: 'bacon',  //The command to be called. With the standard command literal this would be: !bacon
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    API.sendChat("/me [@" + chat.un + "] http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
+                    setTimeout(API.sendChat("/me Bacon!"), 1000);
+                }
             }
-          }
         };
+        
+        // !420
+        bot.commands.fourtwentyCommand = {
+            command: '420',  //The command to be called. With the standard command literal this would be: !420
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.420, {name: chat.un}));
+                    //API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://theredspeechballoon.files.wordpress.com/2011/04/420.gif");
+                }
+            }
+        };
+        
+        // !celebrate
+        bot.commands.celebrateCommand = {
+            command: 'celebrate',  //The command to be called. With the standard command literal this would be: !crab
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chatcrab, {name: chat.un}));
+                    //API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://i205.photobucket.com/albums/bb200/bobbadowski/gif/wtf.gif");
+                }
+            }
+        };
+        
+        // !derp
+        bot.commands.derpCommand = {
+            command: 'derp',  //The command to be called. With the standard command literal this would be: !derp
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat("/me http://media0.giphy.com/media/CzQ9Kl1UIt8hG/giphy.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://media0.giphy.com/media/CzQ9Kl1UIt8hG/giphy.gif");
+                }
+            }
+        };
+        
+        // !derp2
+        bot.commands.derptwoCommand = {
+            command: 'derp2',  //The command to be called. With the standard command literal this would be: !derp2
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat("/me http://i1201.photobucket.com/albums/bb342/Sleepy-eyed-teen/Gifs/1254425341423.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://i1201.photobucket.com/albums/bb342/Sleepy-eyed-teen/Gifs/1254425341423.gif");
+                }
+            }
+        };
+        
+        // !error
+        bot.commands.errorCommand = {
+            command: 'error',  //The command to be called. With the standard command literal this would be: !error
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.error, {name: chat.un}));
+                    //API.sendChat("/me screams ""PHYSICAL FUCKING INVENTORY!"" and looks around the room to see who is here.");
+                    API.sendChat("/me [@" + chat.un + "] http://i.imgur.com/OoeleLF.gif");
+                }
+            }
+        };
+        
+        // !goog
+        bot.commands.googCommand = {
+            command: 'goog',  //The command to be called. With the standard command literal this would be: !goog
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.goog, {name: chat.un}));
+                    //API.sendChat("/me https://33.media.tumblr.com/869693b999179e6d54a7e23133740167/tumblr_nplshl0zFv1tbdiu9o1_400.gif");
+                    API.sendChat("/me [@" + chat.un + "] https://33.media.tumblr.com/869693b999179e6d54a7e23133740167/tumblr_nplshl0zFv1tbdiu9o1_400.gif");
+                }
+            }
+        };
+        
+        // !rum
+        bot.commands.rumCommand = {
+            command: 'rum',  //The command to be called. With the standard command literal this would be: !derp
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat("/me http://media0.giphy.com/media/CzQ9Kl1UIt8hG/giphy.gif");
+                    API.sendChat("/me [@" + chat.un + "] https://33.media.tumblr.com/tumblr_md1xf6FRbP1rxf6yzo1_500.gif");
+                }
+            }
+        };
+        
+        // !fucked
+        bot.commands.fuckedCommand = {
+            command: 'fucked',  //The command to be called. With the standard command literal this would be: !fucked
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.fucked, {name: chat.un}));
+                    //API.sendChat("/me http://media.giphy.com/media/10ipb798xgDruE/giphy.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/JNa20imi2DWZG/giphy.gif");
+                }
+            }
+        };
+        
+        // !lunch
+        bot.commands.lunchCommand = {
+            command: 'lunch',  //The command to be called. With the standard command literal this would be: !lunch
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.lunch, {name: chat.un}));
+                    //API.sendChat("/me http://media.giphy.com/media/10ipb798xgDruE/giphy.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/10ipb798xgDruE/giphy.gif");
+                }
+            }
+        };
+        
+        // !multipass
+        bot.commands.multipassCommand = {
+            command: 'multipass',  //The command to be called. With the standard command literal this would be: !multipass
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.multipass, {name: chat.un}));
+                    //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
+                }
+            }
+        };
+        
+        // !heisenberg
+        bot.commands.heisenbergCommand = {
+            command: ['breakingbad', 'heisenberg'],  //The command to be called. With the standard command literal this would be: !heisenberg
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.heisenberg, {name: chat.un}));
+                    //API.sendChat("/me http://i.imgur.com/tcnm9.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/B1wNXKUJy6qu4/giphy.gif");
+                }
+            }
+        };
+        
+        // !pizza
+        bot.commands.pizzaCommand = {
+            command: 'pizza',  //The command to be called. With the standard command literal this would be: !pizza
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.pizza, {name: chat.un}));
+                    //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/osfGFZAb12gvu/giphy.gif");
+                }
+            }
+        };
+        
+        //Love Shackles----------------------------------------------------------------------------------------------------------------------------
+
+        // !clearlove
+        bot.commands.clearloveCommand = {
+            command: 'clearlove',  //The command to be called. With the standard command literal this would be: !clearlove
+            rank: 'manager', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    localStorage.clear();
+                    localStorage.setItem("RAWRMedusa", "10");
+                    localStorage.setItem("natbudin", "10");
+                    localStorage.setItem("DudeLove", "10");
+                    localStorage.setItem("EvilTinkerBell", "10");
+                    localStorage.setItem("Mizzle51", "10");
+                    localStorage.setItem("mux", "10");
+                    localStorage.setItem("NoSpillBlood", "10");
+                    localStorage.setItem("TwinKarma", "10");
+                    localStorage.setItem("Sinjun", "10");
+                    localStorage.setItem("Understater", "10");
+                    localStorage.setItem("polybot", "5000");
+                    API.sendChat("/me Love Shackles reset! Here's some jukebox money!");
+                }
+            }
+        };
+        
+        // !givetokens - needs to be fixed
+        bot.commands.givetokensCommand = {
+            command: 'givetokens',  //The command to be called. With the standard command literal this would be: !givetokens
+            rank: 'manager', //Minimum user permission to use the command
+            type: 'startsWith', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    var msg = chat.message; 
+					var space = msg.indexOf(' ');
+                    var parse = msg.Split(' ');
+                    var name = msg.substring(space + 2);
+                    var gift = parse[2];
+                    var user = bot.userUtilities.lookupUserName(name); 
+                    var startingTokens = validateTokens(user);
+                    var updatedTokens;
+                    
+                    if (space === -1) { 
+                         API.sendChat("/me @" + chat.un + ", you need to specify another user to give TOKEns to."); 
+                    } 
+                    
+                    if (gift == null || gift == "" || gift == " " || gift == "!givetokens" || isNaN(gift)) {
+                         gift = 1;
+                    }
+                       
+                    updatedTokens = Math.round(gift) + startingTokens;
+                    localStorage.setItem(user, updatedTokens);
+                    return API.sendChat("/me @" + chat.un + " gives @" + user + " " + gift + " TOKEns. @" + user + " now has " + updatedTokens + " TOKEns.");
+                }
+            }
+        };
+        
+        // !tokens
+        bot.commands.tokensCommand = {
+            command: 'tokens',  //The command to be called. With the standard command literal this would be: !tokens
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    var user = chat.un;
+                    var tokens = validateTokens(user);
+                    
+                    API.sendChat("/me @" + user + ", you have " + tokens + " TOKEns.");
+                }
+            }
+        };
+       
+        
+        // !tip
+        bot.commands.tipCommand = {
+            command: 'tip',  //The command to be called. With the standard command literal this would be: !tip
+            rank: 'user', //Minimum user permission to use the command
+            type: 'startsWith', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    var msg = chat.message; 
+                    var space = msg.indexOf(' ');
+                    var receiver = msg.substring(space + 2); 
+                    var giverTokens = validateTokens(chat.un);
+                    var receiverTokens = validateTokens(receiver);
+                    var currentDJ = API.getDJ().username; 
+            
+                    if (giverTokens <= 0) {
+                        return API.sendChat("/me @" + chat.un + " tries to tip @" + receiver + ", for the awesome tunes, but doesn't have any TOKEns! It's the thought that counts, right?"); 
+                    }
+                    else {
+                        receiverTokens += 1;
+                        giverTokens -= 1;
+                        localStorage.setItem(chat.un, giverTokens);
+                        if (space === -1) { 
+                            receiverTokens = validateTokens(currentDJ);
+                            receiverTokens += 1; //Repeat check in the event tip is for current DJ.
+                            localStorage.setItem(currentDJ, receiverTokens);
+                            return API.sendChat("/me @" + chat.un + " tips @" + currentDJ + " for their contirbution to the art of great music.  @" + chat.un + " has " + giverTokens + " TOKEns left. @" + currentDJ + " now has " + receiverTokens + " TOKEns."); 
+                        }
+                        else {                        
+                            localStorage.setItem(receiver, receiverTokens);
+                            return API.sendChat("/me @" + chat.un + " tips @" + receiver + " for throwing down great tracks! @" + chat.un + " has " + giverTokens + " TOKEns left. @" + receiver + " now has " + receiverTokens + " TOKEns.");
+                        }
+                    }
+                }
+            }
+        };
+        
+        //Validate Tokens
+        function validateTokens(user){
+            var tokens; 
+            
+            //Check for existing user tokens
+            if (localStorage.getItem(user) == null || localStorage.getItem(user) == "undefined") {
+                 localStorage.setItem(user, "1");
+                 tokens = localStorage.getItem(user);
+            }
+            else if (localStorage.getItem(user) !== null  && localStorage.getItem(user) !== "undefined") {
+                 tokens = localStorage.getItem(user);
+            }
+            else {
+                 tokens = localStorage.getItem(user);
+            }
+            
+            return tokens;
+        }
+        
+        //Slots---------------------------------------------------------------------------------------------------------------------------
+        function spinSlots() {
+            var slotArray = [':lemon:',
+                             ':tangerine:', 
+                             ':strawberry:', 
+                             ':pineapple:', 
+                             ':apple:', 
+                             ':grapes:', 
+                             ':watermelon:', 
+                             ':cherries:', 
+                             ':green_heart:', 
+                             ':bell:', 
+                             ':gem:', 
+                             ':slot_seven:'];
+            var slotValue = [1.5, 
+                             2, 
+                             2.5, 
+                             3, 
+                             3.5, 
+                             4, 
+                             4.5, 
+                             5, 
+                             5.5, 
+                             6, 
+                             6.5, 
+                             7];    
+            var rand =  Math.floor(Math.random() * (slotArray.length));                
+            return [slotArray[rand], slotValue[rand]]; 
+        }
+        
+        function spinOutcome(bet) {
+            var winnings;
+            var outcome1 = spinSlots(); 
+            var outcome2 = spinSlots(); 
+            var outcome3 = spinSlots();   
+
+            //Determine Winnings
+            if (outcome1[0] == outcome2[0] && outcome1[0] == outcome3[0]) {
+                winnings = Math.round(bet * outcome1[1]);
+            }
+            else if (outcome1[0] == outcome2[0] && outcome1[0] != outcome3[0]) {
+                winnings = Math.round(bet * (.45 * outcome1[1]));
+            }
+            else if (outcome1[0] == outcome3[0] && outcome1[0] != outcome2[0]) {
+                winnings = Math.round(bet * (.5 * outcome1[1]));
+            }
+            else if (outcome2[0] == outcome3[0] && outcome2[0] != outcome1[0]) {
+                winnings = Math.round(bet * (.40 * outcome2[1]));
+            }
+            else{
+                winnings = 0;  
+            }
+                        
+            return [outcome1[0], outcome2[0], outcome3[0], winnings];                      
+        }
+        
+        function checkTokens(bet, user) {
+             var tokensPreBet = validateTokens(user);
+             var tokensPostBet;
+             var validBet = true;
+
+             //Adjust amount of tokens
+             if (bet > tokensPreBet || bet < 0) {
+                  validBet = false;
+                  tokensPostBet = tokensPreBet;
+             }
+             else {
+                  tokensPostBet = tokensPreBet - bet;
+             }
+             
+             localStorage.setItem(user, tokensPostBet);
+             return [tokensPreBet, tokensPostBet, validBet];
+        }
+        
+        function slotWinnings(winnings, user) {
+             var userTokens = parseInt(localStorage.getItem(user)) + winnings;
+             if (isNaN(userTokens)) {
+                 userTokens = winnings;
+             }
+             localStorage.setItem(user, userTokens);
+             return userTokens;
+        }
+
+        //slots
+        bot.commands.slotsCommand = { 
+            command: ['slots', 'slot'],  //The command to be called. With the standard command literal this would be: !slots
+            rank: 'user', 
+            type: 'startsWith',  
+            functionality: function (chat, cmd) { 
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0); 
+                if (!bot.commands.executable(this.rank, chat)) return void (0); 
+                else { 
+                    var msg = chat.message; 
+					var space = msg.indexOf(' ');
+                    var user = chat.un; 
+                    var updatedTokens;
+                    var bet = parseInt(msg.substring(space + 1));
+       
+                    //Fix bet if blank
+                    if (bet == null || isNaN(bet)) {
+                        bet = 1;
+                    }
+                    bet = Math.round(bet);      
+                                   
+                    var playerTokens = checkTokens(bet, user);  
+                    
+                    //Prevent invalid betting
+                    if (bet > playerTokens[0]) {
+                        if (playerTokens[0] === 0){
+                            return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but doesn't have any TOKEns! How embarassing."); 
+                        } 
+                        else if (playerTokens[0] === 1) {
+                            return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has one TOKEn! Wanna press your luck?"); 
+                        }
+                        else {
+                            return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has " + playerTokens[0] + " TOKEns! How embarassing."); 
+                        }
+                    }
+                    else if (bet < 0) {
+                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots... you can't do that."); 
+                    }
+                    else if (bet === 0) { 
+                        return API.sendChat("/me @" + chat.un + " tries to bet no TOKEns at the ChemSlots... you can't play for free! Cheap skate."); 
+                    }
+                    //Process valid bets
+                    else {
+                        var outcome = spinOutcome(bet);
+                        updatedTokens = slotWinnings(outcome[3], user);
+                    }
+                    
+                    //Display Slots
+                    if (space === -1 || bet == 1) { 
+                        //Start Slots
+                        API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin.");
+                        setTimeout(function() {API.sendChat("/me  It finally stops on: " + outcome[0] + outcome[1] + outcome[2])}, 5000);
+                    } 
+                    else if (bet > 1) { 
+                        //Start Slots
+                        API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEns at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin.");
+                        setTimeout(function() {API.sendChat("/me It finally stops on: " + outcome[0] + outcome[1] + outcome[2])}, 5000);
+                    } 
+                    else {
+                        return false; 
+                    }
+                         
+                    //Display Outcome
+                    if (outcome[3] == 0) {
+                        if (updatedTokens === 1) {
+                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You have one TOKEn. I hear gambling is addictive... want to try again?")}, 7000);   
+                        }  
+                        else if (updatedTokens === 0) {
+                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You don't have anymore TOKens... you're ruined, ya bum! Get outta here!")}, 7000);
+                        }
+                        else {
+                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You have " + updatedTokens + " TOKEns. I hear gambling is addictive... want to try again?")}, 7000);
+                        }
+                    }
+                    else if (outcome[3] == (bet * 7)) {
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! You have " + updatedTokens + " TOKEns. Don't spend them all in one place!")}, 7000);      
+                    }
+                    else {
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! You have " + updatedTokens + " TOKEns. How about another spin?")}, 7000); 
+                    }
+                } 
+            } 
+        }; 
 
         // Load the chat package again to account for any changes
         bot.loadChat();
