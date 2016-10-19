@@ -509,7 +509,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0); 
                 else { 
                     var msg = chat.message; 
-					var space = msg.indexOf(' ');
+		    var space = msg.indexOf(' ');
                     var user = chat.un; 
                     var updatedLove;
                     var bet = parseInt(msg.substring(space + 1));
