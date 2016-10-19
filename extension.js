@@ -246,6 +246,38 @@
                 }
             }
         };
+	    
+	// !spirit
+        bot.commands.spiritCommand = {
+            command: 'spirit',  //The command to be called. With the standard command literal this would be: !spirit
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.spirit, {name: chat.un}));
+                    //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/YvOjs0FETL6fe/giphy.gif");
+                }
+            }
+        };
+        
+        // !upvote
+        bot.commands.upvoteCommand = {
+            command: 'upvote',  //The command to be called. With the standard command literal this would be: !upvote
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.pot, {name: chat.un}));
+                    //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://i.imgur.com/uM6gTer.gif");
+                }
+            }
+        };
         
         //Love Shackles----------------------------------------------------------------------------------------------------------------------------
 
