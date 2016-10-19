@@ -537,7 +537,7 @@
                         return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " Love Shackles at the PolySlots... love is a positive energy, not a negative one. Spread some love, don't take it."); 
                     }
                     else if (bet === 0) { 
-                        return API.sendChat("/me @" + chat.un + " tries to bet zero Love Shackles at the PolySlots... sign says ""Stay away, fools!"""); 
+                        return API.sendChat("/me @" + chat.un + @" tries to bet zero Love Shackles at the PolySlots... sign says ""Stay away, fools!"""); 
                     }
                     //Process valid bets
                     else {
