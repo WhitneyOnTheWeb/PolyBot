@@ -341,7 +341,7 @@
                         giverLove -= gift;
                         localStorage.setItem(chat.un, giverLove);
                         localStorage.setItem(receiver, receiverLove);
-                        return API.sendChat("/me @" + chat.un + " gives @" + receiver + " " + gift + " Love Shackles! @" + receiver + " now has " + receiverLove + " Shackles, and my dirty thoughts are running wild.");
+                        return API.sendChat("/me @" + chat.un + " gives @" + receiver + " " + gift + " Love Shackles, and has " + giverLove + " remaining! @" + receiver + " now has " + receiverLove + " Shackles, and my dirty thoughts are running wild.");
                     }
                 }
             }
