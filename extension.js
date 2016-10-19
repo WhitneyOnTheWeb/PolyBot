@@ -342,7 +342,7 @@
         
         // !loveshackles
         bot.commands.loveCommand = {
-            command: 'loveshackles',  //The command to be called. With the standard command literal this would be: !loveshackles
+            command: ['loveshackles', 'love', 'ls'],  //The command to be called. With the standard command literal this would be: !loveshackles
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
