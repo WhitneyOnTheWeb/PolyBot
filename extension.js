@@ -318,7 +318,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     var msg = chat.message; 
-		    var space = msg.indexOf(' ');
+		            var space = msg.indexOf(' ');
                     var parse = msg.Split(' ');
                     var name = msg.substring(space + 2);
                     var gift = parse[2];
@@ -370,7 +370,8 @@
                 else {
                     var msg = chat.message; 
                     var space = msg.indexOf(' ');
-                    var receiver = msg.substring(space + 1); 
+                    var receiver = msg.substring(space + 2); 
+                    console.log(receiver);
                     var giverLove = validateLove(chat.un);
                     var receiverLove = validateLove(receiver);
                     var currentDJ = API.getDJ().username; 
