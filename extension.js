@@ -329,7 +329,7 @@
                          API.sendChat("/me @" + chat.un + ", you need to specify another sexy room guest to give love to."); 
                     } 
                     
-                    if (gift == null || gift == "" || gift == " " || gift == "!givetokens" || isNaN(gift)) {
+                    if (gift == null || gift == "" || gift == " " || gift == "!givelove" || isNaN(gift)) {
                          gift = 1;
                     }
                        
@@ -341,7 +341,7 @@
         };
         
         // !loveshackles
-        bot.commands.tokensCommand = {
+        bot.commands.loveCommand = {
             command: 'loveshackles',  //The command to be called. With the standard command literal this would be: !loveshackles
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
@@ -350,7 +350,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     var user = chat.un;
-                    var tokens = validateTokens(user);
+                    var tokens = validateLove(user);
                     
                     API.sendChat("/me @" + user + ", you have " + tokens + " Love Shackles... don't get too tied up, now.");
                 }
