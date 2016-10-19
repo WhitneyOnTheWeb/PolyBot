@@ -319,7 +319,7 @@
                 else {                
                     var msg = chat.message; 
 		            var space = msg.indexOf(' ');
-                    var parse = msg.Split(' ');
+                    var parse = msg.split(' ');
                     var receiver = msg.substring(space + 2); 
                     console.log(receiver);
                     var gift = parse[2];
