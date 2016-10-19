@@ -317,25 +317,21 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    var msg = chat.message; 
-                    var space = msg.indexOf(' ');
-                    var receiver = msg.substring(space + 2); 
-                    console.log(receiver);
                     var giverLove = validateLove(chat.un);
                     var receiverLove = validateLove(receiver);
-                    
                     
                     var msg = chat.message; 
 		            var space = msg.indexOf(' ');
                     var parse = msg.Split(' ');
-                    var name = msg.substring(space + 2);
+                    var receiver = msg.substring(space + 2); 
+                    console.log(receiver);
                     var gift = parse[2];
-                    var user = bot.userUtilities.lookupUserName(name); 
+                    //var user = bot.userUtilities.lookupUserName(name); 
                     var startingLove = validateLove(user);
                     var updatedLove;
                     
                     if (space === -1) { 
-                         API.sendChat("/me @" + chat.un + ", you need to specify another sexy room guest to give love to."); 
+                         API.sendChat("/me @" + chat.un + ", you need to specify a sexy room guest to give love to."); 
                     } 
                     
                     if (gift == null || gift == "" || gift == " " || gift == "!givelove" || isNaN(gift)) {
@@ -344,7 +340,7 @@
                        
                     updatedLove = Math.round(gift) + startingLove;
                     localStorage.setItem(user, updatedLove);
-                    return API.sendChat("/me @" + chat.un + " gives @" + user + " " + gift + " Love Shackles! @" + user + " now has " + updatedLove + " Shackles, and my dirthy thoughts are running wild.");
+                    return API.sendChat("/me @" + chat.un + " gives @" + receiver + " " + gift + " Love Shackles! @" + receiver + " now has " + updatedLove + " Shackles, and my dirty thoughts are running wild.");
                 }
             }
         };
