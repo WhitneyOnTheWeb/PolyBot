@@ -320,7 +320,7 @@
                     var msg = chat.message; 
 		            var space = msg.indexOf(' ');
                     var parse = msg.split(' ');
-                    var receiver = msg.substring(space + 2); 
+                    var receiver = parse[1] + 1); 
                     console.log(receiver);
                     var gift = parse[2];
                     //var user = bot.userUtilities.lookupUserName(name); 
