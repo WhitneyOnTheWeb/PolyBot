@@ -350,9 +350,9 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     var user = chat.un;
-                    var tokens = validateLove(user);
+                    var love = validateLove(user);
                     
-                    API.sendChat("/me @" + user + ", you have " + tokens + " Love Shackles... don't get too tied up, now.");
+                    API.sendChat("/me @" + user + ", you have " + love + " Love Shackles... don't get too tied up, now.");
                 }
             }
         };
