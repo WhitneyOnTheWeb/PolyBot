@@ -316,10 +316,7 @@
             functionality: function (chat, cmd) {
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    var giverLove = validateLove(chat.un);
-                    var receiverLove = validateLove(receiver);
-                    
+                else {                
                     var msg = chat.message; 
 		            var space = msg.indexOf(' ');
                     var parse = msg.Split(' ');
@@ -327,20 +324,25 @@
                     console.log(receiver);
                     var gift = parse[2];
                     //var user = bot.userUtilities.lookupUserName(name); 
-                    var startingLove = validateLove(user);
+                    var giverLove = validateLove(chat.un);
+                    var receiverLove = validateLove(receiver);
                     var updatedLove;
                     
                     if (space === -1) { 
-                         API.sendChat("/me @" + chat.un + ", you need to specify a sexy room guest to give love to."); 
+                         return API.sendChat("/me @" + chat.un + ", you need to specify a sexy room guest to give love to."); 
                     } 
-                    
-                    if (gift == null || gift == "" || gift == " " || gift == "!givelove" || isNaN(gift)) {
-                         gift = 1;
+                    else {    
+                        if (gift == null || gift == "" || gift == " " || gift == "!givelove" || isNaN(gift)) {
+                            gift = 1;
+                        }
+                        
+                        updatedLove = Math.round(gift) + receiverLove;
+                        receiverLove = updatedLove;
+                        giverLove -= gift;
+                        localStorage.setItem(chat.un, giverLove);
+                        localStorage.setItem(receiver, receiverLove);
+                        return API.sendChat("/me @" + chat.un + " gives @" + receiver + " " + gift + " Love Shackles! @" + receiver + " now has " + receiverLove + " Shackles, and my dirty thoughts are running wild.");
                     }
-                       
-                    updatedLove = Math.round(gift) + startingLove;
-                    localStorage.setItem(user, updatedLove);
-                    return API.sendChat("/me @" + chat.un + " gives @" + receiver + " " + gift + " Love Shackles! @" + receiver + " now has " + updatedLove + " Shackles, and my dirty thoughts are running wild.");
                 }
             }
         };
