@@ -320,7 +320,7 @@
                     var msg = chat.message; 
 		            var space = msg.indexOf(' ');
                     var parse = msg.split(' ');
-                    var receiver = parse[1] + 1);
+                    var receiver = parse[1] + 1;
                     console.log(parse[0]);
                     console.log(parse[1]);
                     console.log(parse[2]);
