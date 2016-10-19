@@ -369,7 +369,7 @@
                 else {
                     var msg = chat.message; 
                     var space = msg.indexOf(' ');
-                    var receiver = msg.substring(space + 2); 
+                    var receiver = msg.substring(space + 1); 
                     var giverLove = validateLove(chat.un);
                     var receiverLove = validateLove(receiver);
                     var currentDJ = API.getDJ().username; 
@@ -566,7 +566,7 @@
                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", awww too bad! You didn't win anything. Try a little harder, sugar...")}, 7000);   
                         }  
                         else if (updatedLove === 0) {
-                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", ouch! You didn't win, and now you're clean out of Love Shackles... unless someone is feeling like spreading the love (shackles), it's time to set sail.")}, 7000);
+                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", ouch! You didn't win, and now you're out of Love Shackles... unless someone is feeling like spreading the love, it's time to set sail.")}, 7000);
                         }
                         else {
                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", too bad, sugar! You didn't win anything. You have " + updatedLove + " Love Shackles if you want to keep yanking the PolySlots rod.")}, 7000);
