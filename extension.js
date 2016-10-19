@@ -275,9 +275,9 @@
             }
         };
         
-        // !givetokens - needs to be fixed
-        bot.commands.givetokensCommand = {
-            command: 'givetokens',  //The command to be called. With the standard command literal this would be: !givetokens
+        // !givelove - needs to be fixed
+        bot.commands.giveloveCommand = {
+            command: 'givelove',  //The command to be called. With the standard command literal this would be: !givelove
             rank: 'manager', //Minimum user permission to use the command
             type: 'startsWith', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
@@ -285,32 +285,32 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     var msg = chat.message; 
-					var space = msg.indexOf(' ');
+		    var space = msg.indexOf(' ');
                     var parse = msg.Split(' ');
                     var name = msg.substring(space + 2);
                     var gift = parse[2];
                     var user = bot.userUtilities.lookupUserName(name); 
-                    var startingTokens = validateTokens(user);
-                    var updatedTokens;
+                    var startingLove = validateLove(user);
+                    var updatedLove;
                     
                     if (space === -1) { 
-                         API.sendChat("/me @" + chat.un + ", you need to specify another user to give TOKEns to."); 
+                         API.sendChat("/me @" + chat.un + ", you need to specify another sexy room guest to give love to."); 
                     } 
                     
                     if (gift == null || gift == "" || gift == " " || gift == "!givetokens" || isNaN(gift)) {
                          gift = 1;
                     }
                        
-                    updatedTokens = Math.round(gift) + startingTokens;
-                    localStorage.setItem(user, updatedTokens);
-                    return API.sendChat("/me @" + chat.un + " gives @" + user + " " + gift + " TOKEns. @" + user + " now has " + updatedTokens + " TOKEns.");
+                    updatedLove = Math.round(gift) + startingLove;
+                    localStorage.setItem(user, updatedLove);
+                    return API.sendChat("/me @" + chat.un + " gives @" + user + " " + gift + " Love Shackles! @" + user + " now has " + updatedLove + " Shackles, and my dirthy thoughts are running wild.");
                 }
             }
         };
         
-        // !tokens
+        // !loveshackles
         bot.commands.tokensCommand = {
-            command: 'tokens',  //The command to be called. With the standard command literal this would be: !tokens
+            command: 'loveshackles',  //The command to be called. With the standard command literal this would be: !loveshackles
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
@@ -320,7 +320,7 @@
                     var user = chat.un;
                     var tokens = validateTokens(user);
                     
-                    API.sendChat("/me @" + user + ", you have " + tokens + " TOKEns.");
+                    API.sendChat("/me @" + user + ", you have " + tokens + " Love Shackles... don't get too tied up, now.");
                 }
             }
         };
@@ -338,49 +338,49 @@
                     var msg = chat.message; 
                     var space = msg.indexOf(' ');
                     var receiver = msg.substring(space + 2); 
-                    var giverTokens = validateTokens(chat.un);
-                    var receiverTokens = validateTokens(receiver);
+                    var giverLove = validateLove(chat.un);
+                    var receiverLove = validateLove(receiver);
                     var currentDJ = API.getDJ().username; 
             
-                    if (giverTokens <= 0) {
-                        return API.sendChat("/me @" + chat.un + " tries to tip @" + receiver + ", for the awesome tunes, but doesn't have any TOKEns! It's the thought that counts, right?"); 
+                    if (giverLove <= 0) {
+                        return API.sendChat("/me @" + chat.un + " tries to give a little love to @" + receiver + " for the awesome tunes, but doesn't have any Love Shackles! It's the thought that counts, right?"); 
                     }
                     else {
-                        receiverTokens += 1;
-                        giverTokens -= 1;
-                        localStorage.setItem(chat.un, giverTokens);
+                        receiverLove += 1;
+                        giverLove -= 1;
+                        localStorage.setItem(chat.un, giverLove);
                         if (space === -1) { 
-                            receiverTokens = validateTokens(currentDJ);
-                            receiverTokens += 1; //Repeat check in the event tip is for current DJ.
-                            localStorage.setItem(currentDJ, receiverTokens);
-                            return API.sendChat("/me @" + chat.un + " tips @" + currentDJ + " for their contirbution to the art of great music.  @" + chat.un + " has " + giverTokens + " TOKEns left. @" + currentDJ + " now has " + receiverTokens + " TOKEns."); 
+                            receiverLove = validateLove(currentDJ);
+                            receiverLove += 1; //Repeat check in the event tip is for current DJ.
+                            localStorage.setItem(currentDJ, receiverLove);
+                            return API.sendChat("/me @" + chat.un + " loves on @" + currentDJ + " for their contirbution to the art of great music.  @" + chat.un + " has " + giverLove + " Love Shackles left. @" + currentDJ + " now has " + receiverLove + " Love Shackles."); 
                         }
                         else {                        
-                            localStorage.setItem(receiver, receiverTokens);
-                            return API.sendChat("/me @" + chat.un + " tips @" + receiver + " for throwing down great tracks! @" + chat.un + " has " + giverTokens + " TOKEns left. @" + receiver + " now has " + receiverTokens + " TOKEns.");
+                            localStorage.setItem(receiver, receiverLove);
+                            return API.sendChat("/me @" + chat.un + " sends a little love @" + receiver + "'s way! I just love PDA. @" + chat.un + " has " + giverLove + " Love Shackles left. @" + receiver + " now has " + receiverLove + " Shackles.");
                         }
                     }
                 }
             }
         };
         
-        //Validate Tokens
-        function validateTokens(user){
-            var tokens; 
+        //Validate Love
+        function validateLove(user){
+            var love; 
             
-            //Check for existing user tokens
+            //Check for existing user love
             if (localStorage.getItem(user) == null || localStorage.getItem(user) == "undefined") {
                  localStorage.setItem(user, "1");
-                 tokens = localStorage.getItem(user);
+                 love = localStorage.getItem(user);
             }
             else if (localStorage.getItem(user) !== null  && localStorage.getItem(user) !== "undefined") {
-                 tokens = localStorage.getItem(user);
+                 love = localStorage.getItem(user);
             }
             else {
-                 tokens = localStorage.getItem(user);
+                 love = localStorage.getItem(user);
             }
             
-            return tokens;
+            return love;
         }
         
         //Slots---------------------------------------------------------------------------------------------------------------------------
