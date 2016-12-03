@@ -297,12 +297,10 @@
                     localStorage.setItem("EvilTinkerBell", "10");
                     localStorage.setItem("Mizzle51", "10");
                     localStorage.setItem("mux", "10");
-                    localStorage.setItem("NoSpillBlood", "10");
-                    localStorage.setItem("TwinKarma", "10");
                     localStorage.setItem("Sinjun", "10");
                     localStorage.setItem("Understater", "10");
                     localStorage.setItem("polybot", "5000");
-		    localStorage.setItem("Chembot", "5000");
+		    localStorage.setItem("polybot", "10000");
                     API.sendChat("/me Love Shackles reset! Here's some jukebox money!");
                 }
             }
@@ -604,7 +602,7 @@
     //Change the bots default settings and make sure they are loaded on launch
 
     localStorage.setItem("basicBotsettings", JSON.stringify({
-      botName: "PolyBot",
+      botName: "polybot",
       language: "english",
       chatLink: "https://rawgit.com/WhitneyOnTheWeb/polyBot/master/lang/en.json",
       scriptLink: "https://rawgit.com/basicBot/source/master/basicBot.js",
@@ -616,7 +614,7 @@
       autoskip: false,
       smartSkip: true,
       cmdDeletion: true,
-      maximumAfk: 120,
+      maximumAfk: 360,
       afkRemoval: true,
       maximumDc: 60,
       bouncerPlus: true,
@@ -648,14 +646,14 @@
       afkRankCheck: "ambassador",
       motdEnabled: false,
       motdInterval: 5,
-      motd: "Welcome to the Poly-Geekery plug.dj community! Pull up a chair, share some of your favorite songs, and make some new like minded friends in chat! We have daily themes, so check back often to see what we're up to! We hope you enjoy this community.",
+      motd: "Welcome to the Poly-Geekery plug.dj community! View the sexy community theme, and enable other cool features using RCS: https://rcs.radiant.dj/. Pull up a chair, share some of your favorite songs, and make some new like minded friends in chat! We have daily themes, so check back often to see what we're up to! We hope you enjoy this community.",
       filterChat: true,
       etaRestriction: false,
       welcome: true,
       opLink: "https://github.com/WhitneyOnTheWeb/polyBot/blob/master/blacklists/OPlist.json",
       rulesLink: null,
       themeLink: null,
-      fbLink: null,
+      fbLink: "https://www.facebook.com/groups/polygeek/",
       youtubeLink: null,
       website: null,
       intervalMessages: ["Nice tracks (and nice racks), keep em' coming!",
